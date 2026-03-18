@@ -470,16 +470,17 @@ The half-power bandwidth $\Delta\omega$ of the resonance peak, defined by $|H(\o
 \begin{tikzpicture}
 \begin{axis}[
   width=0.95\columnwidth,
-  height=6.5cm,
+  height=7cm,
   xlabel={Driving frequency $\omega$ (rad/s)},
   ylabel={$|H(\omega)|^2$ (power gain)},
   xmin=0, xmax=2,
-  ymin=0, ymax=35,
+  ymin=0, ymax=38,
   grid=major,
   grid style={gray!30},
   thick,
+  title style={at={(0.5,1.05)},anchor=south,font=\small},
   title={Attentional Frequency Response},
-  every axis title/.style={font=\small}
+  clip=false
 ]
 
 % |H(omega)|^2 = 1/((0.394 - omega^2)^2 + 4*0.0225*omega^2)
@@ -494,18 +495,18 @@ The half-power bandwidth $\Delta\omega$ of the resonance peak, defined by $|H(\o
 
 % Vertical line at Rosary frequency
 \draw[black,dashed,thin] (axis cs:0.628,0) -- (axis cs:0.628,28.2);
-\node[right,font=\footnotesize] at (axis cs:0.66,26) {Rosary $\omega_b$};
+\node[right,font=\footnotesize] at (axis cs:0.66,30) {Rosary $\omega_b$};
 
 % Vertical line at resonant frequency
 \draw[red,dotted,thin] (axis cs:0.591,0) -- (axis cs:0.591,29.9);
-\node[left,font=\footnotesize,red] at (axis cs:0.56,32) {$\omega_r$};
-
-% Half-power bandwidth arrows
-\draw[<->,gray,thin] (axis cs:0.44,14.95) -- (axis cs:0.74,14.95);
-\node[above,font=\tiny,gray] at (axis cs:0.59,15.5) {bandwidth $\approx 2\gamma$};
+\node[left,font=\footnotesize,red] at (axis cs:0.48,33) {$\omega_r$};
 
 % Half-power line
 \addplot[gray,dashed,thin,domain=0:2] {14.95};
+
+% Half-power bandwidth arrows (positioned below the label clearly)
+\draw[<->,gray,thin] (axis cs:0.44,14.95) -- (axis cs:0.74,14.95);
+\node[below,font=\scriptsize,gray] at (axis cs:0.59,13.5) {bandwidth $\approx 2\gamma$};
 
 \end{axis}
 \end{tikzpicture}
